@@ -87,8 +87,8 @@ function handleHandInteractions(hand) { // 손 상호작용
     for (let button of buttons) { // 버튼 반복
       if (dist(index.x, index.y, button.x, button.y) < button.size) { // 버튼을 클릭했을 때
         buttons.forEach(b => b.active = false); // 모든 버튼 비활성화
-          button.active = true; // 버튼 활성화
-          handleButtonAction(button.type); // 버튼 액션
+        button.active = true; // 버튼 활성화
+        handleButtonAction(button.type); // 버튼 액션
         lastGestureTime = millis(); // 제스처 시간 업데이트
       }
     }
