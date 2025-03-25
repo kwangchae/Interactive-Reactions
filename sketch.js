@@ -86,15 +86,9 @@ function handleHandInteractions(hand) { // 손 상호작용
   if (isPinching && millis() - lastGestureTime > gestureDelay) { // 핀치하고 제스처 딜레이가 지났을 때
     for (let button of buttons) { // 버튼 반복
       if (dist(index.x, index.y, button.x, button.y) < button.size) { // 버튼을 클릭했을 때
-        //buttons.forEach(b => b.active = false); // 모든 버튼 비활성화
-        if(button.active) { // 버튼이 활성화되어 있으면
-          button.active = false; // 버튼 비활성화
-          currentMode = "clear"; // 모드 초기화
-          drawingCanvas.clear(); // 그림 지우기
-        } else {
+        buttons.forEach(b => b.active = false); // 모든 버튼 비활성화
           button.active = true; // 버튼 활성화
           handleButtonAction(button.type); // 버튼 액션
-        }
         lastGestureTime = millis(); // 제스처 시간 업데이트
       }
     }
